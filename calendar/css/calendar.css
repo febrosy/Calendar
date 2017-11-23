@@ -1,0 +1,126 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+#calendarBar
+{
+	cursor: pointer;
+	display: inline-block;
+	padding:2px 6px;
+	border: 1px solid #ddd;
+	border-bottom: none;
+}
+.calendarBar-topic
+{
+	padding: 3px;
+	color: #666;
+	font-size: 12px;
+}
+.calendarBar-container
+{
+	display: inline-block;
+	overflow: hidden;
+}
+.calendarBar-container>span
+{
+	float: left;
+	display: block;
+	padding: 3px;
+	color: #666;
+	font-size: 13px;
+}
+#calendarMain
+{
+	border: 1px solid #ddd !important;
+	position: relative;
+	overflow: hidden;
+}
+.calendar-main
+{
+	width: 10000px;
+	position: absolute;
+	overflow: hidden;
+}
+.calendar
+{
+	float: left;
+	padding: 5px;
+}
+.calendar-right-btn,
+.calendar-left-btn
+{
+	position: absolute;
+	top: 1.5%;
+	padding:0px 5px;
+	color: #ddd;
+	border: 1px solid #ddd;
+	cursor: pointer;
+}
+.calendar-left-btn
+{
+	left: 1%;
+}
+.calendar-right-btn
+{
+	right: 1%;
+}
+.calendar-right-btn:before
+{
+	content: "\2192";
+}
+.calendar-left-btn:before
+{
+	content: "\2190";
+}
+.calendarTopic>p
+{
+	font-size: 15px;
+	display: block;
+	text-align: center;
+	padding:5px;
+	color: #666;
+	font-weight: bold;
+}
+.tableMain{
+	border-collapse: collapse;
+}
+.date
+{
+	background-color: #fff;
+}
+.weekday
+{
+	width: 40px;
+	height: 30px;
+	text-align: center;
+	font-size: 12px;
+	color: #333;
+	background-color: #fff;
+}
+.day
+{
+	font-size: 12px;
+	width: 40px;
+	height: 30px;
+	text-align: center;
+	color: #ddd;
+}
+.weekend
+{
+	color:#FF5A5F !important;
+}
+.afterDay
+{
+	color: #000;
+}
+.afterDaySelect,
+.afterDay:hover
+{
+	background-color:#FF5A5F !important;
+	color: #fff !important;
+}
+.interval
+{
+	background-color: rgba(255,55,75,0.5) !important;
+	color: #fff !important;
+}

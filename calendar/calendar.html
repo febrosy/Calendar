@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="css/calendar.css" />
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
+		<script type="text/javascript" src="js/calendar.js" ></script>
+		<title></title>
+	</head>
+	<body>
+		<div id="calendarBar">
+			<p class="calendarBar-topic">时间</p>
+			<div class="calendarBar-container">
+				<span class="beginDate">开始日期</span>
+				<span>-</span>
+				<span class="endDate">结束日期</span>
+			</div>
+		</div>
+		<div id="calendarMain"></div>
+	</body>
+	<script>calendar.init($("#calendarMain"));</script>
+</html>
