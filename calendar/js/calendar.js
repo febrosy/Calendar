@@ -197,16 +197,13 @@ var calendar=(function(){
 			
 			$(".calendar-left-btn").on("click",function(){
 				if(_this_.animateflag){
+					_this_.animateflag=false;
 					
 					_this_.PreCalendar();
 					_this_.CalendarSelect();
-					
-					if(_this_.mianCalendar[0].offsetLeft>=0){
-						return;
-					}
-					_this_.animateflag=false;
+					var Mainleft=_this_.mianCalendar[0].offsetLeft-_this_.calewidth;
+					_this_.mianCalendar.css("left",Mainleft);
 					var animateleft=_this_.mianCalendar[0].offsetLeft+_this_.calewidth;
-					
 					_this_.mianCalendar.animate({
 						left:animateleft
 					},function(){
