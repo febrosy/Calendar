@@ -13,9 +13,8 @@ var calendar=(function(){
 		this.NowDay=date.getDate();
 		this.PreMonth=this.NowMonth;
 		this.PreYear=this.NowYear;
-		this.NextMonth=this.NowMonth+1;
+		this.NextMonth=(this.NowMonth+1<12)?this.NowMonth+1:0;
 		this.NextYear=this.NowYear;
-		
 		
 		this.dateBegin;
 		this.dateEnd;
@@ -24,6 +23,11 @@ var calendar=(function(){
 		this.caleheight=0;
 		this.CalendarWidth=0;
 		this.animateflag=true;
+		
+		this.setting={
+			BeforeDayHide:true
+		}
+		$.extend(this.setting, this.getSetting());
 		
 		this.Calendar(this.NowYear,this.NowMonth);
 		
@@ -66,18 +70,23 @@ var calendar=(function(){
 						this.mianCalendar.children(".calendar"+this.calendarflag).find(".date").last().append("<td class='weekday'>"+weekDay_str[k]+"</td>");
 					}else{
 						var idx=i*7+k;
-						
 						var td=document.createElement("td");
 						td.className="day";
-						
 						var date=idx-fristweekDay+1;
 						(date<=0||date>m_day[month])?date="":date=idx-fristweekDay+1;
-						
-						
-						if((year>this.NowYear&&date!="")||(year>=this.NowYear&&month>this.NowMonth&&date!="")||(year>=this.NowYear&&month==this.NowMonth&&date>=this.NowDay)){
-							td.className=td.className+" afterDay";
-							if(k==0||k==6){
-								td.className=td.className+" weekend";
+						if(this.setting.BeforeDayHide){
+							if((year>this.NowYear&&date!="")||(year>=this.NowYear&&month>this.NowMonth&&date!="")||(year>=this.NowYear&&month==this.NowMonth&&date>=this.NowDay)){
+								td.className=td.className+" afterDay";
+								if(k==0||k==6){
+									td.className=td.className+" weekend";
+								}
+							}
+						}else{
+							if(date!=""){
+								td.className=td.className+" afterDay";
+								if(k==0||k==6){
+									td.className=td.className+" weekend";
+								}
 							}
 						}
 						
@@ -107,6 +116,7 @@ var calendar=(function(){
 			this.obj.width(this.calewidth*2);
 			this.obj.height(this.caleheight);
 			this.BtnClik();
+			this.CalendarShow();
 		},
 		CalendarSelect:function(){
 			var _this_=this;
@@ -209,6 +219,24 @@ var calendar=(function(){
 					},function(){
 						_this_.animateflag=true;
 					});
+				}
+			});
+		},
+		getSetting:function(){
+			var setting=this.obj.attr("data-setting");
+			if(setting!=""&&setting){
+				return JSON.parse(setting);
+			}else{
+				return {};
+			}
+		},
+		CalendarShow:function(){
+			var _this_=this;
+			$("#calendarBar").on("click",function(){
+				if(_this_.obj.hasClass("visible")){
+					_this_.obj.removeClass("visible");
+				}else{
+					_this_.obj.addClass("visible");
 				}
 			});
 		}

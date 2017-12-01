@@ -8,15 +8,17 @@
 		<title></title>
 	</head>
 	<body>
-		<div id="calendarBar">
-			<p class="calendarBar-topic">时间</p>
-			<div class="calendarBar-container">
-				<span class="beginDate">开始日期</span>
-				<span>-</span>
-				<span class="endDate">结束日期</span>
+		<div class="calendarBox">
+			<div id="calendarBar">
+				<p class="calendarBar-topic">时间</p>
+				<div class="calendarBar-container">
+					<span class="beginDate">开始日期</span>
+					<span>-</span>
+					<span class="endDate">结束日期</span>
+				</div>
 			</div>
+			<div id="calendarMain" data-setting='{"BeforeDayHide":true}'></div>
 		</div>
-		<div id="calendarMain"></div>
 	</body>
 	<script>calendar.init($("#calendarMain"));</script>
 </html>
